@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2048 | Arcade Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="icon" type="image/png" href="../../assests/icons/icons.png.png" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="../../js/shared/sound.js"></script>
+</head>
+<body>
+  <main class="cabinet game-2048-cabinet">
+    <a href="../../index.html" class="back-link">&larr; Back to Menu</a>
+
+    <header class="game-header">
+      <h1>2048</h1>
+      <p class="subtitle">Combine matching tiles and reach 2048.</p>
+    </header>
+
+    <section class="game-panel" aria-label="2048 game">
+      <div class="game-toolbar">
+        <div class="score-box"><span>Score</span><strong id="score">0</strong></div>
+        <div class="score-box"><span>Best</span><strong id="best">0</strong></div>
+        <button id="newGame" class="new-game-btn" type="button">New Game</button>
+      </div>
+
+      <div id="board" class="board-2048" tabindex="0" aria-label="2048 board. Use arrow keys or swipe to move."></div>
+
+      <div class="direction-controls" aria-label="2048 touch controls">
+        <button class="direction-btn up" data-direction="up" type="button" aria-label="Move up">&#9650;</button>
+        <button class="direction-btn" data-direction="left" type="button" aria-label="Move left">&#9664;</button>
+        <button class="direction-btn" data-direction="down" type="button" aria-label="Move down">&#9660;</button>
+        <button class="direction-btn" data-direction="right" type="button" aria-label="Move right">&#9654;</button>
+      </div>
+
+      <div class="controls-hint">Use arrow keys or swipe the board</div>
+      <p id="status" class="status" aria-live="polite">Join the tiles to reach 2048.</p>
+    </section>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>

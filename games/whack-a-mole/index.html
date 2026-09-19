@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Whack-a-Mole | Arcade Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="icon" type="image/png" href="../../assests/icons/icons.png.png" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="../../js/shared/sound.js"></script>
+</head>
+<body>
+  <main class="cabinet mole-cabinet">
+    <a href="../../index.html" class="back-link">&larr; Back to Menu</a>
+
+    <header class="game-header">
+      <h1>Whack-a-Mole</h1>
+      <p class="subtitle">Tap the target before it disappears.</p>
+    </header>
+
+    <section class="mole-panel" aria-label="Whack-a-Mole game">
+      <div class="setup-bar">
+        <label for="difficulty">Difficulty</label>
+        <select id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium" selected>Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+        <span>Time <strong id="time">30</strong></span>
+        <span>Score <strong id="score">0</strong></span>
+        <span>Misses <strong id="misses">0</strong></span>
+      </div>
+
+      <div id="holes" class="holes" aria-label="Whack-a-Mole target holes"></div>
+
+      <button id="start" class="start-btn" type="button">Start Game</button>
+      <p id="status" class="status" aria-live="polite">Choose a difficulty and start the round.</p>
+    </section>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>

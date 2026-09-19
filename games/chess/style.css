@@ -1,0 +1,86 @@
+:root {
+  --chess-cyan: #35f4e0;
+  --chess-pink: #ff5ec4;
+  --chess-yellow: #ffe135;
+  --chess-red: #ff5364;
+  --chess-panel: #0b1024;
+  --square-light: #263052;
+  --square-dark: #080b18;
+}
+
+.chess-cabinet { max-width: 760px; }
+.game-header { text-align: center; padding: 8px 0 22px; }
+.game-header h1 {
+  font: 900 clamp(1.5rem, 6vw, 2.4rem) 'Press Start 2P', monospace;
+  color: var(--chess-cyan);
+  text-shadow: 0 0 14px rgba(53, 244, 224, 0.55);
+}
+.subtitle { color: var(--text-muted); margin-top: 14px; font-size: 0.8rem; }
+.chess-panel {
+  background: var(--chess-panel);
+  border: 2px solid rgba(53, 244, 224, 0.35);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.65);
+}
+.setup-bar, .actions { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.setup-bar label { color: var(--text-muted); font-size: 0.7rem; }
+.setup-bar select {
+  background: #131333;
+  color: var(--text);
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font: 0.72rem 'Orbitron', sans-serif;
+}
+.captured-row { display: flex; justify-content: space-between; gap: 12px; margin: 18px 0 10px; min-height: 30px; }
+.captured-label { display: block; color: var(--text-muted); font-size: 0.58rem; margin-bottom: 5px; }
+.captured-pieces { color: var(--chess-pink); font-size: 1.2rem; letter-spacing: 2px; }
+.turn-status { color: var(--chess-cyan); text-align: center; font-size: 0.9rem; font-weight: 700; margin-bottom: 12px; }
+
+.chess-board {
+  width: min(100%, 620px);
+  aspect-ratio: 1;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  border: 3px solid var(--chess-cyan);
+  box-shadow: 0 0 24px rgba(53, 244, 224, 0.25);
+}
+.square { position: relative; width: 100%; height: 100%; aspect-ratio: 1; padding: 0; border: 0; min-width: 0; display: grid; place-items: center; font-size: clamp(1.5rem, 7vw, 3.25rem); cursor: pointer; overflow: hidden; }
+.square.light { background: var(--square-light); }
+.square.dark { background: var(--square-dark); }
+.square:hover { filter: brightness(1.3); }
+.square.selected { box-shadow: inset 0 0 0 4px var(--chess-yellow); }
+.square.last-move { background: rgba(255, 225, 53, 0.22); box-shadow: inset 0 0 0 3px rgba(255, 225, 53, 0.72); }
+.square.last-move.destination { animation: move-pulse 0.7s ease-out; }
+@keyframes move-pulse { 0% { box-shadow: inset 0 0 0 7px var(--chess-cyan), 0 0 22px var(--chess-cyan); } 100% { box-shadow: inset 0 0 0 3px rgba(255, 225, 53, 0.72); } }
+.square.check { background: rgba(255, 83, 100, 0.45); }
+.square.legal::after, .square.capture::after { content: ''; position: absolute; width: 20%; aspect-ratio: 1; border-radius: 50%; background: var(--chess-cyan); opacity: 0.9; }
+.square.capture::after { width: 72%; border: 3px solid var(--chess-red); background: transparent; }
+.piece { position: relative; z-index: 1; line-height: 1; user-select: none; text-shadow: 0 3px 5px rgba(0, 0, 0, 0.65); }
+.piece.white { color: #f0f5ff; }
+.piece.black { color: #151a2d; text-shadow: 0 0 0 #35f4e0, 0 3px 5px rgba(0, 0, 0, 0.9); }
+.move-status { min-height: 1.2em; color: var(--chess-yellow); text-align: center; font-size: 0.68rem; margin-top: 12px; }
+.status { min-height: 1.4em; color: var(--text-muted); text-align: center; font-size: 0.72rem; margin-top: 6px; }
+.status.check { color: var(--chess-yellow); }
+.status.checkmate, .status.draw { color: var(--chess-red); }
+.actions { margin-top: 14px; }
+.action-btn { background: transparent; color: var(--chess-pink); border: 2px solid var(--chess-pink); border-radius: 8px; padding: 10px 16px; font: 0.72rem 'Orbitron', sans-serif; cursor: pointer; }
+.action-btn:hover { background: rgba(255, 94, 196, 0.1); box-shadow: 0 0 14px rgba(255, 94, 196, 0.35); }
+
+.promotion-dialog { border: 2px solid var(--chess-cyan); border-radius: 12px; background: var(--chess-panel); color: var(--text); padding: 22px; box-shadow: 0 0 35px rgba(53, 244, 224, 0.35); }
+.promotion-dialog::backdrop { background: rgba(3, 5, 15, 0.78); }
+.promotion-dialog h2 { font: 1rem 'Press Start 2P', monospace; color: var(--chess-cyan); }
+.promotion-dialog p { color: var(--text-muted); font-size: 0.8rem; margin: 14px 0; }
+.promotion-choices { display: flex; gap: 8px; }
+.promotion-choice { width: 58px; height: 58px; border: 2px solid var(--chess-cyan); border-radius: 8px; background: #131c3b; color: var(--text); font-size: 2rem; cursor: pointer; }
+.promotion-choice:hover { background: var(--chess-cyan); color: #10152b; }
+
+@media (max-width: 480px) {
+  body { padding: 12px 8px; }
+  .chess-cabinet { padding: 24px 14px 16px; }
+  .chess-panel { padding: 12px; }
+  .captured-row { margin-top: 14px; }
+  .square { font-size: clamp(1.25rem, 8vw, 2.5rem); }
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chess | Arcade Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="icon" type="image/png" href="../../assests/icons/icons.png.png" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="../../js/shared/sound.js"></script>
+</head>
+<body>
+  <main class="cabinet chess-cabinet">
+    <a href="../../index.html" class="back-link">&larr; Back to Menu</a>
+
+    <header class="game-header">
+      <h1>Chess</h1>
+      <p class="subtitle">Plan your attack. Protect your king.</p>
+    </header>
+
+    <section class="chess-panel" aria-label="Chess game">
+      <div class="setup-bar">
+        <label for="mode">Mode</label>
+        <select id="mode">
+          <option value="ai" selected>Vs AI</option>
+          <option value="multiplayer">Multiplayer</option>
+        </select>
+        <label for="difficulty">Difficulty</label>
+        <select id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium" selected>Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
+
+      <div class="captured-row">
+        <div><span class="captured-label">Black captured</span><span id="blackCaptured" class="captured-pieces"></span></div>
+        <div><span class="captured-label">White captured</span><span id="whiteCaptured" class="captured-pieces"></span></div>
+      </div>
+
+      <p id="turnStatus" class="turn-status">Your turn</p>
+      <div id="board" class="chess-board" role="grid" aria-label="Chess board"></div>
+      <p id="moveStatus" class="move-status">Last move: -</p>
+      <p id="status" class="status" aria-live="polite">Select a piece to see its legal moves.</p>
+
+      <div class="actions">
+        <button id="newGame" class="action-btn" type="button">New Game</button>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="promotionDialog" class="promotion-dialog">
+    <form method="dialog">
+      <h2>Promote Pawn</h2>
+      <p>Choose a piece:</p>
+      <div id="promotionChoices" class="promotion-choices"></div>
+    </form>
+  </dialog>
+  <script src="game.js"></script>
+</body>
+</html>

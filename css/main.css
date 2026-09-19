@@ -1,0 +1,226 @@
+/* =========================================
+   DESIGN SYSTEM — neon arcade cabinet theme
+   ========================================= */
+:root {
+  --bg: #0a0a1a;
+  --surface: #131333;
+  --text: #eef0ff;
+  --text-muted: #9aa3d1;
+
+  --primary: #00f0ff;
+  --secondary: #ff2fd0;
+  --success: #39ff9d;
+  --warning: #ffe135;
+  --danger: #ff3860;
+
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+  padding: 24px;
+
+  /* retro grid floor + starfield glow */
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 47, 208, 0.15), transparent 55%),
+    radial-gradient(circle at 50% 100%, rgba(0, 240, 255, 0.12), transparent 60%),
+    var(--bg);
+}
+
+/* =========================================
+   ARCADE CABINET FRAME
+   wraps the whole page's content
+   ========================================= */
+.cabinet {
+  max-width: 1100px;
+  margin: 0 auto;
+  border-radius: 28px;
+  padding: 32px 24px 24px;
+  position: relative;
+
+  background: linear-gradient(180deg, #161638 0%, #0d0d24 100%);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  box-shadow:
+    0 0 0 3px rgba(0, 240, 255, 0.5),
+    0 0 30px rgba(0, 240, 255, 0.35),
+    0 0 60px rgba(255, 47, 208, 0.2),
+    inset 0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+/* corner "bolts" */
+.cabinet::before,
+.cabinet::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0%, var(--primary) 60%, transparent 70%);
+  top: 16px;
+}
+.cabinet::before { left: 20px; }
+.cabinet::after   { right: 20px; }
+
+/* =========================================
+   HUB HEADER
+   ========================================= */
+.hub-header {
+  text-align: center;
+  padding: 24px 24px 32px;
+}
+
+.hub-header h1 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 2.4rem;
+  letter-spacing: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 12px rgba(0, 240, 255, 0.6))
+          drop-shadow(0 0 20px rgba(255, 47, 208, 0.4));
+}
+
+.hub-header .subtitle {
+  margin-top: 18px;
+  color: var(--text-muted);
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   GAME CARD GRID
+   ========================================= */
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  padding: 0 8px 32px;
+}
+
+.game-card {
+  background: var(--surface);
+  border: 2px solid var(--card-color, var(--primary));
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-decoration: none;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  box-shadow:
+    0 0 18px -2px var(--card-color, var(--primary)),
+    inset 0 0 20px -10px var(--card-color, var(--primary));
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.game-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 0 32px 0px var(--card-color, var(--primary)),
+    inset 0 0 24px -8px var(--card-color, var(--primary));
+}
+
+.game-icon {
+  font-size: 2.2rem;
+  margin-bottom: 4px;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+}
+
+.game-card h2 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  color: var(--card-color, var(--primary));
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.game-card p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+.hub-footer {
+  text-align: center;
+  padding: 24px 0 8px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+/* Shared sound controls */
+.sound-settings-trigger {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 20;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  padding: 9px 12px;
+  font: 700 .65rem 'Orbitron', sans-serif;
+  cursor: pointer;
+  box-shadow: 0 0 14px rgba(0, 240, 255, .25);
+}
+
+.sound-settings {
+  position: fixed;
+  right: 18px;
+  bottom: 62px;
+  z-index: 21;
+  width: min(280px, calc(100vw - 36px));
+  padding: 16px;
+  color: var(--text);
+  background: rgba(19, 19, 51, .97);
+  border: 1px solid var(--primary);
+  border-radius: 10px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, .4), 0 0 18px rgba(0, 240, 255, .2);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity .18s ease, transform .18s ease;
+}
+
+.sound-settings.open { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.sound-settings-heading { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; }
+.sound-settings-close { background: none; border: 0; color: var(--text-muted); font-size: 1.3rem; cursor: pointer; }
+.sound-settings label { display: flex; justify-content: space-between; color: var(--text-muted); font-size: .72rem; margin-bottom: 10px; }
+.sound-settings output { color: var(--text); }
+.sound-settings input { width: 100%; accent-color: var(--primary); cursor: pointer; }
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 480px) {
+  .hub-header h1 {
+    font-size: 1.5rem;
+  }
+  .cabinet {
+    padding: 24px 16px 16px;
+  }
+}
+
+
+

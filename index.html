@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arcade Hub</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="assests/icons/icons.png.png" />
+  <link rel="stylesheet" href="css/main.css" />
+  <script src="js/shared/sound.js"></script>
+</head>
+<body>
+  <div class="cabinet">
+
+  <header class="hub-header">
+    <h1>🎮➕ Arcade ❌⭕</h1>
+    <p class="subtitle">Pick a game. Pick your difficulty. Play.</p>
+  </header>
+
+  <main class="game-grid">
+
+    <a class="game-card" href="games/tic-tac-toe/index.html" style="--card-color: var(--primary)">
+      <span class="game-icon">❌⭕</span>
+      <h2>Tic-Tac-Toe</h2>
+      <p>Classic XOX, versus a smart AI.</p>
+    </a>
+
+    <a class="game-card" href="games/memory/index.html" style="--card-color: var(--secondary)">
+      <span class="game-icon">🧠</span>
+      <h2>Memory Match</h2>
+      <p>Flip cards, find the pairs.</p>
+    </a>
+
+    <a class="game-card" href="games/pattern/index.html" style="--card-color: var(--warning)">
+      <span class="game-icon">🔵</span>
+      <h2>Pattern Recall</h2>
+      <p>Watch the sequence, repeat it back.</p>
+    </a>
+
+    <a class="game-card" href="games/sudoku/index.html" style="--card-color: var(--success)">
+      <span class="game-icon">🔢</span>
+      <h2>Sudoku</h2>
+      <p>Complete the grid without repeating numbers.</p>
+    </a>
+
+    <a class="game-card" href="games/lights-out/index.html" style="--card-color: var(--danger)">
+      <span class="game-icon">💡</span>
+      <h2>Lights Out</h2>
+      <p>Turn off every light with the fewest moves.</p>
+    </a>
+
+    <a class="game-card" href="games/checkers/index.html" style="--card-color: var(--secondary)">
+      <span class="game-icon">⚫🔴</span>
+      <h2>Checkers</h2>
+      <p>A minimalist two-player board game.</p>
+    </a>
+
+    <a class="game-card" href="games/2048/index.html" style="--card-color: var(--primary)">
+      <span class="game-icon">🔳</span>
+      <h2>2048</h2>
+      <p>Combine matching tiles and reach the target.</p>
+    </a>
+
+    <a class="game-card" href="games/chess/index.html" style="--card-color: var(--warning)">
+      <span class="game-icon">♟️</span>
+      <h2>Chess</h2>
+      <p>Play multiplayer or challenge the AI.</p>
+    </a>
+
+    <a class="game-card" href="games/whack-a-mole/index.html" style="--card-color: var(--danger)">
+      <span class="game-icon">🎯</span>
+      <h2>Whack-a-Mole</h2>
+      <p>Tap the target before it moves.</p>
+    </a>
+
+    <a class="game-card" href="games/connect/index.html" style="--card-color: var(--warning)">
+      <span class="game-icon">🔴🟡</span>
+      <h2>Connect Four</h2>
+      <p>Connect four discs before your opponent.</p>
+    </a>
+
+    <button class="game-card" type="button" style="--card-color: var(--primary)" onclick="ArcadeSound.openSettings()">
+      <span class="game-icon">⚙️</span>
+      <h2>Settings</h2>
+      <p>Adjust the arcade sound effects.</p>
+    </button>
+
+  </main>
+
+    <footer class="hub-footer">
+    <p>Built by ❤ Archith.</p>
+  </footer>
+
+  </div>
+</body>
+</html>
+
+
+

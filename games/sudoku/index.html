@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sudoku | Arcade Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="icon" type="image/png" href="../../assests/icons/icons.png.png" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="../../js/shared/sound.js"></script>
+</head>
+<body>
+  <main class="cabinet sudoku-cabinet">
+    <a href="../../index.html" class="back-link">&larr; Back to Menu</a>
+
+    <header class="game-header">
+      <h1>Sudoku</h1>
+      <p>Fill every row, column, and 3x3 box.</p>
+    </header>
+
+    <section class="sudoku-panel" aria-label="Sudoku game">
+      <div class="toolbar">
+        <label for="difficulty">Difficulty</label>
+        <select id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium" selected>Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+        <button id="newGame" class="primary-btn" type="button">New Game</button>
+      </div>
+
+      <div class="stats" aria-live="polite">
+        <span>Time <strong id="timer">00:00</strong></span>
+        <span>Mistakes <strong id="mistakes">0</strong>/3</span>
+      </div>
+
+      <div id="board" class="sudoku-board" role="grid" aria-label="Sudoku board"></div>
+
+      <div class="number-panel">
+        <p id="numberCount" class="number-count" aria-live="polite">Select a number to see how many are on the board.</p>
+        <div id="numberPad" class="number-pad" aria-label="Choose a number"></div>
+        <button id="erase" class="erase-btn" type="button">Erase Selected</button>
+      </div>
+
+      <div class="actions">
+        <button id="check" class="action-btn" type="button">Check Board</button>
+        <button id="hint" class="action-btn" type="button">Use Hint</button>
+      </div>
+      <p id="status" class="status" aria-live="polite">Choose a number for each empty square.</p>
+    </section>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>

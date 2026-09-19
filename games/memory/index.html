@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory Match — Game Hub</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Press+Start+2P&display=swap" rel="stylesheet" />
+   <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="icon" type="image/png" href="../../assests/icons/icons.png.png" />
+  
+  <link rel="stylesheet" href="style.css" />
+  <script src="../../js/shared/sound.js"></script>
+</head>
+<body>
+  <div class="cabinet">
+
+    <a href="../../index.html" class="back-link">&larr; Back to Menu</a>
+
+    <header class="game-header">
+      <h1>Memory Match</h1>
+    </header>
+
+    <!-- ===== SETUP SCREEN ===== -->
+    <section id="setupScreen" class="screen-panel">
+
+      <div class="setup-group">
+        <p class="setup-label">Game Mode</p>
+        <div class="option-row" id="modeRow">
+          <button class="opt-btn active" data-mode="ai">Player vs AI</button>
+          <button class="opt-btn" data-mode="2">2 Players</button>
+          <button class="opt-btn" data-mode="3">3 Players</button>
+          <button class="opt-btn" data-mode="4">4 Players</button>
+        </div>
+      </div>
+
+      <div class="setup-group">
+        <p class="setup-label">Difficulty</p>
+        <div class="option-row" id="diffRow">
+          <button class="opt-btn active" data-level="easy">Easy</button>
+          <button class="opt-btn" data-level="medium">Medium</button>
+          <button class="opt-btn" data-level="hard">Hard</button>
+          <button class="opt-btn" data-level="extreme">Extreme</button>
+        </div>
+        <p class="setup-hint" id="diffHint">6 pairs · 12 cards</p>
+      </div>
+
+      <button id="startBtn" class="start-btn">🚀 Start Game</button>
+    </section>
+
+    <!-- ===== GAME SCREEN (hidden until Start is pressed) ===== -->
+    <section id="gameScreen" class="screen-panel hidden">
+
+      <div class="scoreboard" id="scoreboard"></div>
+
+      <p class="turn-status" id="turnStatus">Your turn</p>
+
+      <div class="memory-board" id="memoryBoard"></div>
+
+      <div class="game-actions">
+        <button id="newGameBtn" class="ghost-btn">New Game</button>
+        <button id="settingsBtn" class="ghost-btn">Settings</button>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

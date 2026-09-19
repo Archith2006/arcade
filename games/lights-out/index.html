@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lights Out | Arcade Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="icon" type="image/png" href="../../assests/icons/icons.png.png" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="../../js/shared/sound.js"></script>
+</head>
+<body>
+  <main class="cabinet lights-cabinet">
+    <a href="../../index.html" class="back-link">&larr; Back to Menu</a>
+
+    <header class="game-header">
+      <h1>Lights Out</h1>
+      <p>Turn off every light. Each move changes its neighbors.</p>
+    </header>
+
+    <section class="lights-panel" aria-label="Lights Out game">
+      <div class="toolbar">
+        <label for="difficulty">Difficulty</label>
+        <select id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium" selected>Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+        <button id="newGame" class="primary-btn" type="button">New Puzzle</button>
+      </div>
+
+      <div class="stats" aria-live="polite">
+        <span>Moves <strong id="moves">0</strong></span>
+        <span>Best <strong id="best">-</strong></span>
+      </div>
+
+      <div id="board" class="lights-board" role="grid" aria-label="Lights Out board"></div>
+
+      <div class="actions">
+        <button id="reset" class="action-btn" type="button">Reset Puzzle</button>
+        <button id="solve" class="action-btn" type="button">Show Solution</button>
+      </div>
+      <p id="status" class="status" aria-live="polite">Turn off all the lights to win.</p>
+    </section>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>

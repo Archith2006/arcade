@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkers | Arcade Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="icon" type="image/png" href="../../assests/icons/icons.png.png" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="../../js/shared/sound.js"></script>
+</head>
+<body>
+  <main class="cabinet checkers-cabinet">
+    <a href="../../index.html" class="back-link">&larr; Back to Menu</a>
+
+    <header class="game-header">
+      <h1>Checkers</h1>
+      <p class="subtitle">Capture every opposing piece. Reach the far edge to become a king.</p>
+    </header>
+
+    <section class="checkers-panel" aria-label="Checkers game">
+      <div class="setup-bar">
+        <label for="mode">Mode</label>
+        <select id="mode">
+          <option value="ai" selected>Vs AI</option>
+          <option value="multiplayer">Multiplayer</option>
+        </select>
+        <label for="difficulty">Difficulty</label>
+        <select id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium" selected>Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
+
+      <div class="game-info">
+        <p id="turnStatus" class="turn-status">Your turn</p>
+        <p id="captureStatus" class="capture-status">Select a piece to begin.</p>
+      </div>
+
+      <div id="board" class="checkers-board" role="grid" aria-label="Checkers board"></div>
+
+      <div class="legend" aria-label="Player colors">
+        <span><i class="legend-piece red-piece"></i> Red</span>
+        <span><i class="legend-piece black-piece"></i> Black</span>
+      </div>
+
+      <div class="actions">
+        <button id="newGame" class="action-btn" type="button">New Game</button>
+        <button id="reset" class="action-btn secondary" type="button">Reset Board</button>
+      </div>
+      <p id="status" class="status" aria-live="polite">Your turn. Red moves first.</p>
+    </section>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>

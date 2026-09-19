@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connect Four | Arcade Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="icon" type="image/png" href="../../assests/icons/icons.png.png" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="../../js/shared/sound.js"></script>
+</head>
+<body>
+  <main class="cabinet connect-cabinet">
+    <a href="../../index.html" class="back-link">&larr; Back to Menu</a>
+
+    <header class="game-header">
+      <h1>Connect Four</h1>
+      <p class="subtitle">Drop four discs in a row to win.</p>
+    </header>
+
+    <section class="connect-panel" aria-label="Connect Four game">
+      <div class="setup-bar">
+        <label for="mode">Mode</label>
+        <select id="mode">
+          <option value="ai" selected>Vs AI</option>
+          <option value="multiplayer">Multiplayer</option>
+        </select>
+        <label for="difficulty">Difficulty</label>
+        <select id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium" selected>Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
+
+      <div class="game-info">
+        <p id="turnStatus" class="turn-status">Your turn</p>
+        <p id="status" class="status" aria-live="polite">Choose a column to drop your disc.</p>
+      </div>
+
+      <div id="board" class="connect-board" role="grid" aria-label="Connect Four board"></div>
+
+      <div class="legend" aria-label="Player colors">
+        <span><i class="legend-disc red-disc"></i> Red</span>
+        <span><i class="legend-disc yellow-disc"></i> Yellow</span>
+      </div>
+
+      <button id="newGame" class="action-btn" type="button">New Game</button>
+    </section>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>

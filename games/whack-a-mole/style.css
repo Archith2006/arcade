@@ -1,0 +1,60 @@
+:root {
+  --mole-cyan: #35f4e0;
+  --mole-pink: #ff5ec4;
+  --mole-yellow: #ffe135;
+  --mole-red: #ff5364;
+  --mole-panel: #0b1024;
+}
+
+.mole-cabinet { max-width: 680px; }
+.game-header { text-align: center; padding: 8px 0 22px; }
+.game-header h1 {
+  font: 900 clamp(1.35rem, 5vw, 2.1rem) 'Press Start 2P', monospace;
+  color: var(--mole-cyan);
+  text-shadow: 0 0 14px rgba(53, 244, 224, 0.55);
+}
+.subtitle { color: var(--text-muted); margin-top: 14px; font-size: 0.8rem; }
+.mole-panel {
+  background: var(--mole-panel);
+  border: 2px solid rgba(53, 244, 224, 0.35);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.65);
+}
+.setup-bar { display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap; color: var(--text-muted); font-size: 0.7rem; margin-bottom: 18px; }
+.setup-bar label { color: var(--text-muted); }
+.setup-bar select { background: #131333; color: var(--text); border: 2px solid rgba(255, 255, 255, 0.18); border-radius: 8px; padding: 8px 10px; font: 0.72rem 'Orbitron', sans-serif; }
+.setup-bar span + span { border-left: 1px solid rgba(255, 255, 255, 0.2); padding-left: 10px; }
+.setup-bar strong { color: var(--mole-yellow); margin-left: 3px; }
+
+.holes {
+  width: min(100%, 530px);
+  aspect-ratio: 1;
+  margin: 0 auto;
+  padding: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  background: #070a17;
+  border: 3px solid var(--mole-cyan);
+  border-radius: 14px;
+  box-shadow: 0 0 24px rgba(53, 244, 224, 0.25);
+}
+.hole { position: relative; border: 0; border-radius: 50%; background: #151a31; box-shadow: inset 0 8px 0 #050710, 0 0 0 2px rgba(53, 244, 224, 0.15); cursor: pointer; overflow: hidden; touch-action: manipulation; }
+.hole:hover { background: #1d2544; }
+.hole.active { background: radial-gradient(circle at 50% 72%, #ff5364 0 22%, #ff5ec4 23% 37%, #151a31 38%); box-shadow: inset 0 8px 0 #050710, 0 0 18px rgba(255, 94, 196, 0.75); }
+.hole.active::before { content: '●'; position: absolute; left: 50%; top: 42%; transform: translate(-50%, -50%); color: var(--mole-yellow); font-size: clamp(1.7rem, 8vw, 3rem); text-shadow: 0 0 12px rgba(255, 225, 53, 0.8); }
+.hole.hit { animation: hit 0.22s ease-out; }
+@keyframes hit { 50% { transform: scale(0.86); background: var(--mole-yellow); } }
+.start-btn { display: block; margin: 18px auto 0; background: transparent; color: var(--mole-pink); border: 2px solid var(--mole-pink); border-radius: 8px; padding: 11px 18px; font: 0.75rem 'Orbitron', sans-serif; cursor: pointer; }
+.start-btn:hover { background: rgba(255, 94, 196, 0.1); box-shadow: 0 0 14px rgba(255, 94, 196, 0.35); }
+.status { min-height: 1.3em; color: var(--text-muted); text-align: center; margin-top: 14px; font-size: 0.72rem; }
+.status.success { color: var(--mole-yellow); }
+.status.error { color: var(--mole-red); }
+
+@media (max-width: 480px) {
+  body { padding: 12px 8px; }
+  .mole-cabinet { padding: 24px 14px 16px; }
+  .mole-panel { padding: 12px; }
+  .holes { padding: 10px; gap: 8px; }
+}

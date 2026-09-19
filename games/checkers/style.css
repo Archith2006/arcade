@@ -1,0 +1,128 @@
+:root {
+  --checkers-cyan: #35f4e0;
+  --checkers-pink: #ff5ec4;
+  --checkers-yellow: #ffe135;
+  --checkers-red: #ff5364;
+  --checkers-panel: #0b1024;
+  --board-light: #263052;
+  --board-dark: #080b18;
+}
+
+.checkers-cabinet { max-width: 720px; }
+.game-header { text-align: center; padding: 8px 0 22px; }
+.game-header h1 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(1.4rem, 6vw, 2.4rem);
+  color: var(--checkers-cyan);
+  text-shadow: 0 0 14px rgba(53, 244, 224, 0.55);
+}
+.subtitle { color: var(--text-muted); margin-top: 14px; font-size: 0.8rem; line-height: 1.5; }
+
+.checkers-panel {
+  background: var(--checkers-panel);
+  border: 2px solid rgba(53, 244, 224, 0.35);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.65);
+}
+
+.setup-bar, .game-info, .actions, .legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.setup-bar label { color: var(--text-muted); font-size: 0.72rem; }
+.setup-bar select {
+  background: #131333;
+  color: var(--text);
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font: 0.75rem 'Orbitron', sans-serif;
+}
+.game-info { justify-content: space-between; margin: 18px 0 14px; }
+.turn-status { color: var(--checkers-cyan); font-weight: 700; font-size: 1rem; }
+.capture-status { color: var(--text-muted); font-size: 0.7rem; text-align: right; }
+
+.checkers-board {
+  width: min(100%, 560px);
+  aspect-ratio: 1;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  border: 3px solid var(--checkers-cyan);
+  background: var(--board-light);
+  box-shadow: 0 0 22px rgba(53, 244, 224, 0.25);
+}
+.square { position: relative; border: 0; min-width: 0; background: var(--board-light); cursor: default; }
+.square.dark { background: var(--board-dark); cursor: pointer; }
+.square.dark:hover { background: #151d39; }
+.square.selected { box-shadow: inset 0 0 0 4px var(--checkers-yellow); }
+.square.legal::after, .square.capture::after {
+  content: '';
+  position: absolute;
+  width: 25%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  left: 37.5%;
+  top: 37.5%;
+  background: var(--checkers-yellow);
+}
+.square.capture::after { width: 42%; left: 29%; top: 29%; background: var(--checkers-red); box-shadow: 0 0 12px var(--checkers-red); }
+
+.piece {
+  position: absolute;
+  z-index: 1;
+  width: 70%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  left: 15%;
+  top: 15%;
+  border: 3px solid rgba(255, 255, 255, 0.25);
+  box-shadow: inset 0 -5px 0 rgba(0, 0, 0, 0.3), 0 3px 4px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+}
+.piece.red { background: var(--checkers-red); }
+.piece.black { background: #252a3d; border-color: rgba(53, 244, 224, 0.45); }
+.piece.king::after {
+  content: 'K';
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--checkers-yellow);
+  font: 700 0.85rem 'Press Start 2P', monospace;
+}
+
+.legend { color: var(--text-muted); font-size: 0.7rem; margin: 18px 0; }
+.legend span { display: flex; align-items: center; gap: 7px; }
+.legend-piece { width: 15px; height: 15px; border-radius: 50%; display: inline-block; }
+.legend-piece.red-piece { background: var(--checkers-red); }
+.legend-piece.black-piece { background: #252a3d; border: 1px solid var(--checkers-cyan); }
+
+.actions { gap: 10px; }
+.action-btn {
+  background: transparent;
+  color: var(--checkers-cyan);
+  border: 2px solid var(--checkers-cyan);
+  border-radius: 8px;
+  padding: 10px 15px;
+  font: 0.72rem 'Orbitron', sans-serif;
+  cursor: pointer;
+}
+.action-btn:hover { box-shadow: 0 0 14px rgba(53, 244, 224, 0.35); background: rgba(53, 244, 224, 0.1); }
+.action-btn.secondary { color: var(--checkers-pink); border-color: var(--checkers-pink); }
+.action-btn.secondary:hover { background: rgba(255, 94, 196, 0.1); box-shadow: 0 0 14px rgba(255, 94, 196, 0.35); }
+.status { min-height: 1.3em; color: var(--text-muted); text-align: center; margin-top: 16px; font-size: 0.75rem; }
+.status.success { color: var(--success); }
+
+@media (max-width: 480px) {
+  body { padding: 12px 8px; }
+  .checkers-cabinet { padding: 24px 14px 16px; }
+  .checkers-panel { padding: 12px; }
+  .checkers-board { border-width: 2px; }
+  .game-info { display: block; }
+  .capture-status { text-align: left; margin-top: 5px; }
+}
